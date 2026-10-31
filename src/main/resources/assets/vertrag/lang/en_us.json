@@ -1,0 +1,31 @@
+{
+	"key.category.vertrag.main": "Contract",
+	"key.vertrag.open": "Open contract",
+
+	"gui.vertrag.title": "Contract",
+	"gui.vertrag.creator": "Creator: %s",
+	"gui.vertrag.partner": "Counterparty: %s",
+	"gui.vertrag.none": "(not signed yet)",
+	"gui.vertrag.sign_here": "Sign here by holding the mouse button:",
+	"gui.vertrag.status_active": "Status: VALID",
+	"gui.vertrag.status_cancelled": "Status: CANCELLED",
+	"gui.vertrag.status_new": "Status: no contract concluded yet",
+	"gui.vertrag.text_changed": "Warning: the text was changed after signing!",
+	"gui.vertrag.truncated": "... (text truncated)",
+	"gui.vertrag.button.create": "Sign & conclude",
+	"gui.vertrag.button.countersign": "Sign as counterparty",
+	"gui.vertrag.button.clear": "Clear",
+	"gui.vertrag.button.cancel": "Cancel contract",
+	"gui.vertrag.button.close": "Close",
+
+	"message.vertrag.no_book": "Hold a book (book and quill or written book) in your hand.",
+	"message.vertrag.no_contract": "This book is not a contract. The first line must read VERTRAG.",
+	"message.vertrag.bad_signature": "The signature is invalid or too short.",
+	"message.vertrag.created": "Contract concluded and signed.",
+	"message.vertrag.countersigned": "You signed the contract as counterparty.",
+	"message.vertrag.cancelled": "The contract was cancelled.",
+	"message.vertrag.only_creator": "Only the creator of the contract can cancel it.",
+	"message.vertrag.cannot_create": "This book already contains a valid contract.",
+	"message.vertrag.cannot_countersign": "You cannot sign this contract as counterparty.",
+	"message.vertrag.text_changed": "The contract text was changed after signing."
+}
