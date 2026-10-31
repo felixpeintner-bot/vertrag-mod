@@ -18,7 +18,7 @@ public class ContractMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModComponents.init();
-		DeathPenalty.register();
+		ContractEngine.register();
 
 		PayloadTypeRegistry.serverboundPlay().register(ContractActionPayload.TYPE, ContractActionPayload.CODEC);
 

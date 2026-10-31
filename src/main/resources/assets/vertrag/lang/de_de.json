@@ -1,7 +1,6 @@
 {
 	"key.category.vertrag.main": "Vertrag",
 	"key.vertrag.open": "Vertrag öffnen",
-
 	"gui.vertrag.title": "Vertrag",
 	"gui.vertrag.creator": "Ersteller: %s",
 	"gui.vertrag.partner": "Gegenpartei: %s",
@@ -17,7 +16,6 @@
 	"gui.vertrag.button.clear": "Löschen",
 	"gui.vertrag.button.cancel": "Vertrag kündigen",
 	"gui.vertrag.button.close": "Schließen",
-
 	"message.vertrag.no_book": "Halte ein Buch (Buch und Feder oder signiertes Buch) in der Hand.",
 	"message.vertrag.no_contract": "Das Buch ist kein Vertrag. Die erste Zeile muss VERTRAG lauten.",
 	"message.vertrag.bad_signature": "Die Unterschrift ist ungültig oder zu kurz.",
@@ -28,14 +26,10 @@
 	"message.vertrag.cannot_create": "In diesem Buch gibt es bereits einen gültigen Vertrag.",
 	"message.vertrag.cannot_countersign": "Du kannst diesen Vertrag nicht als Gegenpartei unterschreiben.",
 	"message.vertrag.text_changed": "Der Vertragstext wurde nach der Unterschrift geändert.",
-	"message.vertrag.death_penalty": "Vertragsstrafe: Du hast %s Diamanten verloren.",
-	"message.vertrag.no_partner": "Es gibt noch keine Gegenpartei, die bestraft werden kann.",
-	"message.vertrag.target_offline": "Die Gegenpartei ist nicht online.",
-	"message.vertrag.penalty_done_creator": "Strafe vollzogen: %s Diamanten von %s erhalten.",
-	"message.vertrag.penalty_done_target": "Vertragsstrafe: %s Diamanten wurden dir von %s abgenommen.",
-	"message.vertrag.kill_creator": "Strafe vollzogen: %s wurde getötet.",
-	"message.vertrag.kill_target": "Vertragsstrafe: %s hat dich wegen Vertragsbruchs töten lassen.",
-	"gui.vertrag.status_punished": "Status: STRAFE VOLLZOGEN",
-	"gui.vertrag.button.penalty_diamonds": "Strafe: 20 Diamanten",
-	"gui.vertrag.button.penalty_kill": "Strafe: Töten"
+	"gui.vertrag.rules": "Erkannte Regeln: %s",
+	"gui.vertrag.no_rules": "Keine Regeln erkannt: der Vertrag hat keine Wirkung.",
+	"message.vertrag.rules_active": "Vertrag aktiv mit %s Regel(n).",
+	"message.vertrag.debt_created": "Vertragsschuld: %s schuldet %s %s an %s.",
+	"message.vertrag.debt_paid": "Schuld beglichen: %s hat %s %s an %s übergeben (noch offen: %s).",
+	"message.vertrag.rule_kill": "Vertragsregel: Du wirst jetzt getötet."
 }

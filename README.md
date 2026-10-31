@@ -1,59 +1,44 @@
 # Vertrag (Fabric, Minecraft 26.2)
 
 Schreibe einen Vertrag in ein Buch, drücke **R**, unterschreibe mit der Maus.
+Der Vertragstext wird vom Server ausgeführt, sobald **beide** Personen unterschrieben haben.
 
-## So funktioniert es
+## Ablauf
 
-1. Nimm ein **Buch und Feder** (oder ein signiertes Buch) in die Hand und schreibe den Vertragstext hinein.
-   Die **erste Zeile** muss `VERTRAG` heißen (siehe Vorlage unten).
-2. Drücke **R** (Taste ist unter Steuerung > "Vertrag" änderbar). Der Vertragsbildschirm öffnet sich.
-3. Zeichne mit gedrückter linker Maustaste deine Unterschrift in das Feld und klicke **Unterschreiben & abschließen**.
-4. Andere Spieler können dasselbe Buch öffnen und mit **Als Gegenpartei unterschreiben** gegenzeichnen.
-5. **Kündigen** kann nur der Spieler, der den Vertrag erstellt (zuerst unterschrieben) hat. Die Prüfung läuft auf dem Server.
+1. Buch und Feder in die Hand, Vertrag schreiben. Erste Zeile: `VERTRAG`.
+2. **R** drücken, mit gedrückter Maustaste unterschreiben, "Unterschreiben & abschließen".
+3. Die andere Person hält das Buch in der Hand, drückt **R** und klickt "Als Gegenpartei unterschreiben".
+4. Ab jetzt gelten die Regeln im Text. Kündigen kann nur der Ersteller.
 
-Der Vertragsstatus (Ersteller, Unterschriften, gültig/gekündigt) wird direkt im Buch-Item gespeichert
-und bleibt erhalten, wenn das Buch weitergegeben wird. Wird der Text nach der Unterschrift geändert,
-zeigt der Bildschirm eine Warnung (einfacher Hash, kein kryptografischer Schutz).
-
-## Vertragsvorlage (so in das Buch schreiben)
+## Regeln (feste Sätze)
 
 ```
 VERTRAG
-Vertragspartner: <Name A> und <Name B>
 
-§1 Gegenstand
-<Name A> liefert <Name B> 64 Eisenbarren.
+WENN Ersteller stirbt
+DANN gibt Gegenpartei dem Ersteller 2 Diamanten
 
-§2 Gegenleistung
-<Name B> zahlt dafür 10 Diamanten.
-
-§3 Laufzeit
-Der Vertrag gilt ab Unterschrift auf unbestimmte Zeit
-und kann nur vom Ersteller gekündigt werden.
+WENN Gegenpartei stirbt
+DANN wird Ersteller getötet
 ```
+
+- Auslöser: `WENN Ersteller stirbt`, `WENN Gegenpartei stirbt`
+- Aktionen: `DANN gibt <Rolle> dem/der <Rolle> <Zahl> <Item>` oder `DANN wird <Rolle> getötet`
+- Items: Diamanten, Eisenbarren, Goldbarren, Smaragde, Netheritbarren, Kupferbarren, Kohle,
+  Lapislazuli, Redstone, Enderperlen, Goldaepfel, Aepfel, Brote, Pfeile
+- Maximal 10 Regeln pro Vertrag, maximal 2304 Stück pro Regel.
+- Im Vertragsfenster steht, wie viele Regeln erkannt wurden.
+
+## Schulden
+
+Gibt eine Regel Items weiter, entsteht zuerst eine **Schuld**. Sobald der Schuldner die Items im
+Inventar hat und beide Personen online sind, wird automatisch abgebucht und dem Gläubiger gegeben.
+Hat der Schuldner zu wenig, wird das Vorhandene übergeben und der Rest bleibt als Schuld offen.
+Schulden bleiben auch nach einer Kündigung bestehen.
 
 ## Bauen
 
-Voraussetzungen: **JDK 25**, Internetzugang für Gradle.
+JDK 25 und Gradle 9.5.1: `gradle build` -> `build/libs/vertrag-1.0.0.jar`
+(oder per GitHub Actions, siehe `.github/workflows/build.yml`).
 
-```
-gradle wrapper --gradle-version 9.5.1   # einmalig, erzeugt gradlew
-./gradlew build
-```
-
-Die fertige Mod liegt danach unter `build/libs/vertrag-1.0.0.jar`.
-Zum Testen: `./gradlew runClient`.
-
-Benötigt: Minecraft 26.2, Fabric Loader >= 0.19.3, Fabric API (0.161.0+26.2 getestet vorgesehen).
-
-## Modrinth
-
-- Projekttyp: Mod, Loader: Fabric, Spielversion: 26.2
-- Umgebung: Client **und** Server (beide brauchen die Mod)
-- Abhängigkeit: Fabric API (erforderlich)
-- Lizenz: MIT
-
-## Struktur
-
-- `src/main` – gemeinsame Logik: Data Component, Netzwerkpaket, Server-Regeln
-- `src/client` – R-Taste und Vertragsbildschirm mit Unterschriftsfeld
+Benötigt: Minecraft 26.2, Fabric Loader >= 0.19.3, Fabric API.

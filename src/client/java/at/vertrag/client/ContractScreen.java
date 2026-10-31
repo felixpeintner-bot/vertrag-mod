@@ -3,6 +3,7 @@ package at.vertrag.client;
 import at.vertrag.ContractActionPayload;
 import at.vertrag.ContractBooks;
 import at.vertrag.ContractData;
+import at.vertrag.ContractRules;
 import at.vertrag.Signature;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -83,15 +84,6 @@ public class ContractScreen extends Screen {
 					.bounds(x + 154, buttonY, 60, 20).build());
 			buttonY += 24;
 		}
-		if (this.canCancel && !this.data.partner().isEmpty()) {
-			this.addRenderableWidget(Button.builder(Component.translatable("gui.vertrag.button.penalty_diamonds"),
-							btn -> penalty(ContractActionPayload.PENALTY_DIAMONDS))
-					.bounds(x, buttonY, 138, 20).build());
-			this.addRenderableWidget(Button.builder(Component.translatable("gui.vertrag.button.penalty_kill"),
-							btn -> penalty(ContractActionPayload.PENALTY_KILL))
-					.bounds(x + 142, buttonY, 138, 20).build());
-			buttonY += 24;
-		}
 		if (this.canCancel) {
 			this.addRenderableWidget(Button.builder(Component.translatable("gui.vertrag.button.cancel"), btn -> cancel())
 					.bounds(x, buttonY, 138, 20).build());
@@ -110,11 +102,6 @@ public class ContractScreen extends Screen {
 		}
 		int action = this.canCreate ? ContractActionPayload.CREATE : ContractActionPayload.COUNTERSIGN;
 		ClientPlayNetworking.send(new ContractActionPayload(action, sig));
-		this.onClose();
-	}
-
-	private void penalty(int action) {
-		ClientPlayNetworking.send(new ContractActionPayload(action, ""));
 		this.onClose();
 	}
 
@@ -197,9 +184,6 @@ public class ContractScreen extends Screen {
 		} else if (this.data.isActive()) {
 			status = Component.translatable("gui.vertrag.status_active");
 			statusColor = 0xFF55FF55;
-		} else if (this.data.isPunished()) {
-			status = Component.translatable("gui.vertrag.status_punished");
-			statusColor = 0xFFFFAA00;
 		} else {
 			status = Component.translatable("gui.vertrag.status_cancelled");
 			statusColor = 0xFFFF5555;
@@ -230,6 +214,13 @@ public class ContractScreen extends Screen {
 				drawParty(graphics, this.data.partner(), "gui.vertrag.partner", this.left + PANEL_WIDTH / 2 + 4, sigRowY);
 			}
 		}
+
+		int ruleCount = ContractRules.parse(this.contractText).size();
+		Component rulesInfo = ruleCount > 0
+				? Component.translatable("gui.vertrag.rules", ruleCount)
+				: Component.translatable("gui.vertrag.no_rules");
+		graphics.text(this.font, rulesInfo.getString(), this.left, sigRowY + 40,
+				ruleCount > 0 ? 0xFF88DDFF : 0xFFFFAA00, true);
 
 		if (this.textChanged) {
 			graphics.text(this.font, Component.translatable("gui.vertrag.text_changed").getString(),

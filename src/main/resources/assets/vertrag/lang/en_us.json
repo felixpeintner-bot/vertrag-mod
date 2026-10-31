@@ -1,7 +1,6 @@
 {
 	"key.category.vertrag.main": "Contract",
 	"key.vertrag.open": "Open contract",
-
 	"gui.vertrag.title": "Contract",
 	"gui.vertrag.creator": "Creator: %s",
 	"gui.vertrag.partner": "Counterparty: %s",
@@ -17,7 +16,6 @@
 	"gui.vertrag.button.clear": "Clear",
 	"gui.vertrag.button.cancel": "Cancel contract",
 	"gui.vertrag.button.close": "Close",
-
 	"message.vertrag.no_book": "Hold a book (book and quill or written book) in your hand.",
 	"message.vertrag.no_contract": "This book is not a contract. The first line must read VERTRAG.",
 	"message.vertrag.bad_signature": "The signature is invalid or too short.",
@@ -28,14 +26,10 @@
 	"message.vertrag.cannot_create": "This book already contains a valid contract.",
 	"message.vertrag.cannot_countersign": "You cannot sign this contract as counterparty.",
 	"message.vertrag.text_changed": "The contract text was changed after signing.",
-	"message.vertrag.death_penalty": "Contract penalty: you lost %s diamonds.",
-	"message.vertrag.no_partner": "There is no counterparty to penalize yet.",
-	"message.vertrag.target_offline": "The counterparty is not online.",
-	"message.vertrag.penalty_done_creator": "Penalty carried out: received %s diamonds from %s.",
-	"message.vertrag.penalty_done_target": "Contract penalty: %s diamonds were taken from you by %s.",
-	"message.vertrag.kill_creator": "Penalty carried out: %s was killed.",
-	"message.vertrag.kill_target": "Contract penalty: %s had you killed for breaking the contract.",
-	"gui.vertrag.status_punished": "Status: PENALTY CARRIED OUT",
-	"gui.vertrag.button.penalty_diamonds": "Penalty: 20 diamonds",
-	"gui.vertrag.button.penalty_kill": "Penalty: kill"
+	"gui.vertrag.rules": "Recognized rules: %s",
+	"gui.vertrag.no_rules": "No rules recognized: the contract has no effect.",
+	"message.vertrag.rules_active": "Contract active with %s rule(s).",
+	"message.vertrag.debt_created": "Contract debt: %s owes %s %s to %s.",
+	"message.vertrag.debt_paid": "Debt paid: %s handed %s %s to %s (still open: %s).",
+	"message.vertrag.rule_kill": "Contract rule: you are being killed."
 }
