@@ -27,5 +27,15 @@
 	"message.vertrag.only_creator": "Nur der Ersteller des Vertrags kann ihn kündigen.",
 	"message.vertrag.cannot_create": "In diesem Buch gibt es bereits einen gültigen Vertrag.",
 	"message.vertrag.cannot_countersign": "Du kannst diesen Vertrag nicht als Gegenpartei unterschreiben.",
-	"message.vertrag.text_changed": "Der Vertragstext wurde nach der Unterschrift geändert."
+	"message.vertrag.text_changed": "Der Vertragstext wurde nach der Unterschrift geändert.",
+	"message.vertrag.death_penalty": "Vertragsstrafe: Du hast %s Diamanten verloren.",
+	"message.vertrag.no_partner": "Es gibt noch keine Gegenpartei, die bestraft werden kann.",
+	"message.vertrag.target_offline": "Die Gegenpartei ist nicht online.",
+	"message.vertrag.penalty_done_creator": "Strafe vollzogen: %s Diamanten von %s erhalten.",
+	"message.vertrag.penalty_done_target": "Vertragsstrafe: %s Diamanten wurden dir von %s abgenommen.",
+	"message.vertrag.kill_creator": "Strafe vollzogen: %s wurde getötet.",
+	"message.vertrag.kill_target": "Vertragsstrafe: %s hat dich wegen Vertragsbruchs töten lassen.",
+	"gui.vertrag.status_punished": "Status: STRAFE VOLLZOGEN",
+	"gui.vertrag.button.penalty_diamonds": "Strafe: 20 Diamanten",
+	"gui.vertrag.button.penalty_kill": "Strafe: Töten"
 }

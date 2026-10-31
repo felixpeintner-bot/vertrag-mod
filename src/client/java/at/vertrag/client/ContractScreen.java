@@ -64,7 +64,7 @@ public class ContractScreen extends Screen {
 		this.wrappedLines = wrap(this.contractText, PANEL_WIDTH - 12);
 
 		this.left = (this.width - PANEL_WIDTH) / 2;
-		this.top = Math.max(4, (this.height - 290) / 2);
+		this.top = Math.max(4, (this.height - 320) / 2);
 
 		int textBottom = this.top + 16 + TEXT_LINES * LINE_HEIGHT + 6;
 		int sigRowY = textBottom + 6;
@@ -81,6 +81,15 @@ public class ContractScreen extends Screen {
 					.bounds(x, buttonY, 150, 20).build());
 			this.addRenderableWidget(Button.builder(Component.translatable("gui.vertrag.button.clear"), btn -> clear())
 					.bounds(x + 154, buttonY, 60, 20).build());
+			buttonY += 24;
+		}
+		if (this.canCancel && !this.data.partner().isEmpty()) {
+			this.addRenderableWidget(Button.builder(Component.translatable("gui.vertrag.button.penalty_diamonds"),
+							btn -> penalty(ContractActionPayload.PENALTY_DIAMONDS))
+					.bounds(x, buttonY, 138, 20).build());
+			this.addRenderableWidget(Button.builder(Component.translatable("gui.vertrag.button.penalty_kill"),
+							btn -> penalty(ContractActionPayload.PENALTY_KILL))
+					.bounds(x + 142, buttonY, 138, 20).build());
 			buttonY += 24;
 		}
 		if (this.canCancel) {
@@ -101,6 +110,11 @@ public class ContractScreen extends Screen {
 		}
 		int action = this.canCreate ? ContractActionPayload.CREATE : ContractActionPayload.COUNTERSIGN;
 		ClientPlayNetworking.send(new ContractActionPayload(action, sig));
+		this.onClose();
+	}
+
+	private void penalty(int action) {
+		ClientPlayNetworking.send(new ContractActionPayload(action, ""));
 		this.onClose();
 	}
 
@@ -183,6 +197,9 @@ public class ContractScreen extends Screen {
 		} else if (this.data.isActive()) {
 			status = Component.translatable("gui.vertrag.status_active");
 			statusColor = 0xFF55FF55;
+		} else if (this.data.isPunished()) {
+			status = Component.translatable("gui.vertrag.status_punished");
+			statusColor = 0xFFFFAA00;
 		} else {
 			status = Component.translatable("gui.vertrag.status_cancelled");
 			statusColor = 0xFFFF5555;

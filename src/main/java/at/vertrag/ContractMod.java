@@ -18,11 +18,12 @@ public class ContractMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModComponents.init();
+		DeathPenalty.register();
 
 		PayloadTypeRegistry.serverboundPlay().register(ContractActionPayload.TYPE, ContractActionPayload.CODEC);
 
 		ServerPlayNetworking.registerGlobalReceiver(ContractActionPayload.TYPE,
-				(payload, context) -> ContractServer.handle(payload, context.player()));
+				(payload, context) -> ContractServer.handle(payload, context.player(), context.server()));
 
 		LOGGER.info("Vertrag-Mod geladen");
 	}

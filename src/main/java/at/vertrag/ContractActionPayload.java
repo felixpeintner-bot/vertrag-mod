@@ -11,6 +11,8 @@ public record ContractActionPayload(int action, String signature) implements Cus
 	public static final int CREATE = 0;
 	public static final int COUNTERSIGN = 1;
 	public static final int CANCEL = 2;
+	public static final int PENALTY_DIAMONDS = 3;
+	public static final int PENALTY_KILL = 4;
 
 	public static final Identifier ID = ContractMod.id("contract_action");
 

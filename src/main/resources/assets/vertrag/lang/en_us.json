@@ -27,5 +27,15 @@
 	"message.vertrag.only_creator": "Only the creator of the contract can cancel it.",
 	"message.vertrag.cannot_create": "This book already contains a valid contract.",
 	"message.vertrag.cannot_countersign": "You cannot sign this contract as counterparty.",
-	"message.vertrag.text_changed": "The contract text was changed after signing."
+	"message.vertrag.text_changed": "The contract text was changed after signing.",
+	"message.vertrag.death_penalty": "Contract penalty: you lost %s diamonds.",
+	"message.vertrag.no_partner": "There is no counterparty to penalize yet.",
+	"message.vertrag.target_offline": "The counterparty is not online.",
+	"message.vertrag.penalty_done_creator": "Penalty carried out: received %s diamonds from %s.",
+	"message.vertrag.penalty_done_target": "Contract penalty: %s diamonds were taken from you by %s.",
+	"message.vertrag.kill_creator": "Penalty carried out: %s was killed.",
+	"message.vertrag.kill_target": "Contract penalty: %s had you killed for breaking the contract.",
+	"gui.vertrag.status_punished": "Status: PENALTY CARRIED OUT",
+	"gui.vertrag.button.penalty_diamonds": "Penalty: 20 diamonds",
+	"gui.vertrag.button.penalty_kill": "Penalty: kill"
 }
