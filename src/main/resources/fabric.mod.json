@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "vertrag",
+	"version": "${version}",
+	"name": "Vertrag",
+	"description": "Serverseitige Vertraege in Buechern: unterschreiben, Regeln werden automatisch ausgefuehrt, Original-Buch ist unzerstoerbar. Nur auf dem Server noetig.",
+	"authors": ["Vertrag Mod"],
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["at.vertrag.ContractMod"],
+		"client": ["at.vertrag.client.ContractModClient"]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
