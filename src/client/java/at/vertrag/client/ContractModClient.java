@@ -37,7 +37,7 @@ public class ContractModClient implements ClientModInitializer {
 	}
 
 	private static void press(Minecraft client) {
-		if (client.player == null || client.screen != null) {
+		if (client.player == null) {
 			return;
 		}
 		ItemStack stack = client.player.getMainHandItem();
